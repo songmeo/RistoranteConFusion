@@ -25,8 +25,9 @@ class CommentForm extends React.Component {
 	}
 	
 	handleSubmit(values) {
+		this.toggleModal();
 		console.log("Current state is: " + JSON.stringify(values));
-        alert("Current state is: " + JSON.stringify(values));
+		alert("Current state is: " + JSON.stringify(values));
 	}
 	
     render() {
@@ -44,14 +45,14 @@ class CommentForm extends React.Component {
                 <ModalBody>
                     <LocalForm onSubmit={(values) => this.handleSubmit(values)}>
                         <Row className="form-group">
-							<Col md={10}>
+							<Col md={12}>
 								<Label htmlFor="name">Your Name</Label>
                             	<Control.text model='.name' id="name" name="name" className="form-control" placeholder="Your Name" innerRef={(input) => this.name = input} validators={{required, minLength: minLength(3), maxLength: maxLength(15)}}/>
 								<Errors className="text-danger" model=".name" show="touched" messages={{required: 'Required', minLength: 'Must be greater than 2 chars', maxLength: 'Must be 15 chars or less'}}></Errors>
 							</Col>
                         </Row>
 						<Row className="form-group">
-							<Col md={10}>
+							<Col md={12}>
 								<Label htmlFor="rating">Rating</Label>
 								<Control.select model=".rating" className="form-control" name="rating" innerRef={(input) => this.rating = input}>
 									<option>1</option>
@@ -63,13 +64,13 @@ class CommentForm extends React.Component {
 							</Col>
                         </Row>
 						<Row className="form-group">
-							<Col md={10}>
+							<Col md={12}>
 								<Label htmlFor="comment">Comment</Label>
-								<Control.textarea model=".comment" id="comment" name="comment" rows="12" className="form-control" />
+								<Control.textarea model=".comment" id="comment" name="comment" rows="6" className="form-control" />
 							</Col>
                         </Row>
                         <Row className="form-group">
-							<Col md={10}>
+							<Col md={12}>
 								<Button type="submit" color="primary">Submit</Button>
 							</Col>
                         </Row>
