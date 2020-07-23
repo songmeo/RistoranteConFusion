@@ -140,7 +140,7 @@ const DishDetail = (props) => {
 	}
 	else if(selectedDish != null)
 		return (
-			<div class="container">
+			<div className="container">
 				<div className="row">
 					<Breadcrumb>
 						<BreadcrumbItem><Link to='/menu'>Menu</Link></BreadcrumbItem>
