@@ -1,31 +1,44 @@
 import React from 'react';
 import { Breadcrumb, BreadcrumbItem, Card, CardBody, CardHeader, Media } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { baseUrl } from '../shared/baseUrl';
+import { Loading } from './LoadingComponent';
 
-function RenderLeader({ leader }) {
-    return(
-        <div key={leader.id } className="col-12 mt-5">
-            <Media>
-                <Media>
-                    <Media object src={leader.image}></Media>
-                </Media>
-                <Media body className="ml-5">
-                    <Media heading>{ leader.name }</Media>
-                    <p>{ leader.description }</p>
-                </Media>
+function RenderLeaders({ leaders, isLoading, errMess }) {
+    if(isLoading) {
+        return(
+            <Loading />
+        )
+    }
+    else if(errMess) {
+        return(
+            <h4>{ errMess }</h4>
+        )
+    }
+    else
+        leaders = leaders.map((leader) => {
+            return (
+                <div key={ leader.id } className="col-12 mt-5">
+                    <Media>
+                        <Media>
+                            <Media object src={ baseUrl + leader.image }></Media>
+                        </Media>
+                        <Media body className="ml-5">
+                            <Media heading>{ leader.name }</Media>
+                            <p>{ leader.description }</p>
+                        </Media>
+                    </Media>
+                </div>
+            );
+        });
+        return(
+            <Media list>
+                { leaders }
             </Media>
-        </div>
-        
-    );
+        );
 }
 
 const About =(props) => {
-    const leaders = props.leaders.map((leader) => {
-        return (
-            <RenderLeader leader={leader} />
-        );
-    });
-
     return(
         <div className="container">
             <div className="row">
@@ -81,9 +94,7 @@ const About =(props) => {
                     <h2>Corporate Leadership</h2>
                 </div>
                 <div className="col-12">
-                    <Media list>
-                        {leaders}
-                    </Media>
+                    <RenderLeaders leaders={props.leaders.leaders} isLoading={props.leaders.isLoading} errMess={props.leaders.errMess}/>
                 </div>
             </div>
         </div> 
