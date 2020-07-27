@@ -28,8 +28,8 @@
     "serve": "^11.3.2"
   },
   "scripts": {
-    "dev": "react-scripts start",
-    "start": "serve -s build && nodemon server.js",
+    "dev": "react-scripts start && nodemon server.js",
+    "start": "serve -s build && node server.js",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
