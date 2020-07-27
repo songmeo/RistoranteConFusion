@@ -1,5 +1,6 @@
 
 ## Features:
+  * clicking menu dishes to see details, adding comments about those dishes
   * adding comments, feedbacks to server and fetch them to the page
   * leaders, dishes, comments, images are loaded from the server
   * redux for state management
