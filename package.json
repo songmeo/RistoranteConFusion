@@ -29,11 +29,11 @@
   },
   "scripts": {
     "dev": "react-scripts start && nodemon server.js",
-    "start": "serve -s build && node server.js",
+    "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "node server.js"
   },
   "eslintConfig": {
     "extends": "react-app"
