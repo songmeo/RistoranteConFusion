@@ -19,7 +19,7 @@ export const Feedbacks = (state = {
             return {...state, isLoading: false, errMess: action.payload, feedbacks: []};
         case ActionTypes.ADD_FEEDBACK:
             var feedback = action.payload;
-            return {...state, comments: state.feedbacks.concat(feedback)};
+            return {...state, feedbacks: state.feedbacks.concat(feedback)};
         default:
             return state;
     }

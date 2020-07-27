@@ -222,7 +222,7 @@ export const postFeedback = (firstname, lastname, telnum, email, agree, contactT
     })
     .then(response => response.json())
     .then(response => { dispatch(addFeedback(response))
-        alert("Current state is: " + JSON.stringify(response));})
+        alert("Thank you for your feedback! " + JSON.stringify(response));})
     .catch(error => { console.log('Send feedback ', error.message)
         alert('Your feedback could not be sent\nError + ' + error.message);})
 }
