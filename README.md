@@ -9,3 +9,8 @@
 https://confusion-server-songmeo.herokuapp.com/
 ###### then click:
 https://confusion-restaurant-songmeo.herokuapp.com/home
+
+## Yay! I finished the course!
+###### certificate:
+https://coursera.org/share/a83c7ae1459360465283d8b5b5f4afb7
+
